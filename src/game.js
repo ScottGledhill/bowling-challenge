@@ -11,7 +11,7 @@ Game.prototype.addFrameScore = function() {
   this.frame.checkStrike();
   this.frame.checkSpare();
   this.frame.checkScore();
-  this.scorecard.push(this.frame.score);
+  this.scorecard.push(this.frame.totalScore);
 };
 
 Game.prototype.endGame = function() {

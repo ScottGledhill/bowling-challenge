@@ -15,7 +15,7 @@ describe ("Game", function() {
    game.frame.firstRoll = 1;
    game.frame.secondRoll = 2;
    game.addFrameScore();
-   expect(game.scorecard).toContain([3]);
+   expect(game.scorecard).toEqual([3]);
  });
 
   it('ends after 10 frames', function(){
@@ -30,10 +30,7 @@ describe ("Game", function() {
     game.frame.firstRoll = 1;
     game.frame.secondRoll = 4;
     game.addFrameScore();
-    game.frame.firstRoll = 1;
-    game.frame.secondRoll = 4;
-    game.addFrameScore();
     game.finalScore();
-    expect(game.final).toEqual('08');
+    expect(game.final).toEqual(8);
   });
 });

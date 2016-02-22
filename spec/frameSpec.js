@@ -8,14 +8,14 @@ describe ("Frame", function() {
 
   it('can record a strike', function(){
     frame1.checkStrike(10);
-    expect(frame1.score[0]).toEqual('X');
+    expect(frame1.totalScore[0]).toEqual('X');
   });
 
   it('can record a spare', function () {
     frame1.firstRoll = 6;
     frame1.secondRoll = 4;
     frame1.checkSpare();
-    expect(frame1.score).toContain('/');
+    expect(frame1.totalScore).toContain('/');
   });
 
   it('can create frame score', function(){
