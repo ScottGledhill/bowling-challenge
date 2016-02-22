@@ -1,27 +1,27 @@
 
 describe ("Frame", function() {
-  var frame;
+  var frame1;
 
   beforeEach(function () {
-     frame = new Frame();
+     frame1 = new Frame();
    });
 
   it('can record a strike', function(){
-    frame.checkStrike(10);
-    expect(frame.score[0]).toEqual(10);
+    frame1.checkStrike(10);
+    expect(frame1.score[0]).toEqual('X');
   });
 
   it('can record a spare', function () {
-    frame.firstRoll = 6;
-    frame.secondRoll = 4;
-    frame.checkSpare();
-    expect(frame.score).toContain('/');
+    frame1.firstRoll = 6;
+    frame1.secondRoll = 4;
+    frame1.checkSpare();
+    expect(frame1.score).toContain('/');
   });
 
   it('can create frame score', function(){
-    frame.firstRoll = 4;
-    frame.secondRoll = 3;
-    frame.checkScore();
-    expect(frame.totalScore).toEqual(7);
+    frame1.firstRoll = 4;
+    frame1.secondRoll = 3;
+    frame1.checkScore();
+    expect(frame1.totalScore).toEqual(7);
   });
 });
