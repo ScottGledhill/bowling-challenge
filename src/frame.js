@@ -14,10 +14,11 @@ function Frame() {
     if (this.firstRoll != 10 && this.firstRoll + this.secondRoll === 10)
     this.score.push('/');
     else {
-      this.totalScore = (this.firstRoll + this.secondRoll);
+      this.checkScore();
     }
   };
 
   Frame.prototype.checkScore = function () {
     this.totalScore = (this.firstRoll + this.secondRoll);
+    this.score.push(this.totalScore);
   };
