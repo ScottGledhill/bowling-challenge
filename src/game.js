@@ -17,9 +17,11 @@ Game.prototype.checkFrame = function(pins) {
 
 Game.prototype.roll = function(pins) {
   this.checkFrame(pins);
-  if (this.frameError === true); {
-    this.frameError = false; }
+  if (this.frameError === true) {
+    this.frameError = false;
+  } else {
     this.rolls.push(pins);
+  }
 };
 
 Game.prototype.finalScore = function () {

@@ -11,9 +11,10 @@ describe ("Game", function() {
     expect(game1.frameError).toEqual(false);
   });
 
-  it('can throw error when pins entered greater than 10', function(){
-    game1.roll(11);
-    expect(game1.frameError).toEqual(false);
+  it('can change frame error when pins entered greater than 10', function(){
+    game1.roll(9);
+    game1.roll(4);
+    expect(game1.frame).toEqual([9]);
   });
 
   it('can push pins into rolls array', function(){
