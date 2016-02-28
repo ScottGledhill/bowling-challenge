@@ -25,4 +25,9 @@ describe ("Game", function() {
     game1.isSpare();
     expect(game1.rolls).toEqual(10);
   });
+
+  it('can record a spare', function(){
+    game1.isStrike();
+    expect(game1.rolls).toEqual(10);
+  });
 });
