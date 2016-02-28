@@ -1,6 +1,6 @@
 
 
-Game = function () {
+Game = function() {
   this.rolls = [];
   this.frame = [];
   this.frameError = false;
@@ -22,12 +22,31 @@ Game.prototype.roll = function(pins) {
     this.rolls.push(pins);
 };
 
+Game.prototype.finalScore = function () {
 
-function isSpare () {
-  return game.rolls[rollNumber] + game.rolls[rollNumber + 1] == 10;
-}
+  var score = 0;
+  var rollNumber = 0;
+  var game = this;
 
-function isStrike () {
-  return game.rolls[rollNumber] == 10;
+  function isSpare () {
+    return game.rolls[rollNumber] + game.rolls[rollNumber + 1] == 10;
+  }
+
+  function isStrike () {
+    return game.rolls[rollNumber] == 10;
+  }
+
+  for (var whichFrame = 0; whichFrame < 10; whichFrame++) {
+  if (isStrike()) {
+    score += this.rolls[rollNumber] + this.rolls[rollNumber + 1] + this.rolls[rollNumber + 2];
+    rollNumber++;
+  } else if (isSpare()) {
+    score += this.rolls[rollNumber] + this.rolls[rollNumber + 1] + this.rolls[rollNumber + 2];
+    rollNumber += 2;
+  } else {
+    score += this.rolls[rollNumber] + this.rolls[rollNumber + 1];
+    rollNumber += 2;
+  }
 }
-}
+  return score;
+};

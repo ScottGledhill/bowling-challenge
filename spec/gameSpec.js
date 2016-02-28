@@ -22,12 +22,21 @@ describe ("Game", function() {
   });
 
   it('can record a spare', function(){
-    game1.isSpare();
+    game1.rolls = 10;
     expect(game1.rolls).toEqual(10);
   });
 
-  it('can record a spare', function(){
-    game1.isStrike();
+  it('can record a strike', function(){
+    game1.rolls = 10;
     expect(game1.rolls).toEqual(10);
   });
-});
+
+  it('can roll a perfect game', function() {
+  multiple(10,12);
+  expect(game1.finalScore()).toBe(300);
+  });
+
+  var multiple = function (pins, rolls) {
+   for (var i = 0; i < rolls; i++)
+   game1.roll(pins);};
+  });
