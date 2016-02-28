@@ -1,25 +1,24 @@
 
 
-function Game(){
-  this.scorecard = [];
-  this.frame = new Frame();
-  this.final = 0;
-}
-
-Game.prototype.addFrameScore = function() {
-  this.endGame();
-  this.frame.checkStrike();
-  this.frame.checkSpare();
-  this.frame.checkScore();
-  this.scorecard.push(this.frame.totalScore);
+Game = function () {
+  this.rolls = [];
+  this.frame = [];
+  this.frameError = false;
 };
 
-Game.prototype.endGame = function() {
-  if (this.scorecard.length >= 10) return 'GAME OVER';
-  this.finalScore();
+Game.prototype.checkFrame = function(pins) {
+  if (pins > (10 - (this.frame[0])) ) {
+    this.frameError = true; }
+  else if ((this.frame.length === 1) || (pins === 10)) {
+    this.frame = []; }
+  else {
+    this.frame.push(pins); }
 };
 
-Game.prototype.finalScore = function() {
-  this.final = this.scorecard.reduce(function(a, b) { return a + b; }, 0);
-  console.log(this.scorecard);
+
+Game.prototype.roll = function(pins) {
+  this.checkFrame(pins);
+  if (this.frameError === true); {
+    this.frameError = false; }
+    this.rolls.push(pins);
 };
