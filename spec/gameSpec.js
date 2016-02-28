@@ -22,13 +22,19 @@ describe ("Game", function() {
   });
 
   it('can record a spare', function(){
-    game1.rolls = 10;
-    expect(game1.rolls).toEqual(10);
+    game1.roll(5);
+    game1.roll(2);
+    game1.roll(3);
+    multiple(0, 18);
+    expect(game1.finalScore()).toEqual(10);
   });
 
   it('can record a strike', function(){
-    game1.rolls = 10;
-    expect(game1.rolls).toEqual(10);
+    game1.roll(10);
+    game1.roll(3);
+    game1.roll(7);
+    multiple(0, 16);
+    expect(game1.finalScore()).toEqual(30);
   });
 
   it('can roll a perfect game', function() {
