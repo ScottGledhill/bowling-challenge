@@ -37,9 +37,14 @@ describe ("Game", function() {
     expect(game1.finalScore()).toEqual(30);
   });
 
-  it('can roll a perfect game', function() {
-  multiple(10,12);
-  expect(game1.finalScore()).toBe(300);
+  it('can record a perfect game', function() {
+    multiple(10,12);
+    expect(game1.finalScore()).toBe(300);
+  });
+
+  it('can record gutter game', function () {
+    multiple(0, 20);
+    expect(game1.finalScore()).toBe(0);
   });
 
   var multiple = function (pins, rolls) {
