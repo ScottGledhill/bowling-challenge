@@ -15,10 +15,19 @@ Game.prototype.checkFrame = function(pins) {
     this.frame.push(pins); }
 };
 
-
 Game.prototype.roll = function(pins) {
   this.checkFrame(pins);
   if (this.frameError === true); {
     this.frameError = false; }
     this.rolls.push(pins);
 };
+
+
+function isSpare () {
+  return game.rolls[rollNumber] + game.rolls[rollNumber + 1] == 10;
+}
+
+function isStrike () {
+  return game.rolls[rollNumber] == 10;
+}
+}
